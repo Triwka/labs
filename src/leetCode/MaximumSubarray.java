@@ -21,6 +21,6 @@ public class MaximumSubarray {
                 currSum = 0;
             }
         }
-        System.out.println(maxSum);
+        System.out.println(Integer.MIN_VALUE);
     }
 }
