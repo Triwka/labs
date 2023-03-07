@@ -28,7 +28,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
  */
 
 
-public class LSWRC_3 {
+public class LongestSubstringWORepeat {
     public static int lengthOfLongestSubstring(String s) {
         if (s.length() == 1){
             return 1;
