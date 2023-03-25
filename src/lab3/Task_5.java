@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Task_5 {
     public static void main(String[] args) {
-        HashMap<Integer, String> map = new HashMap<>();
+        Map<Integer, String> map = new HashMap<>();
 
         // Заполняем HashMap 10 объектами <Integer, String>
         map.put(0, "нулеваяРаз");
@@ -22,7 +22,6 @@ public class Task_5 {
         map.put(9, "девять");
         map.put(10, "десять");
         System.out.println(map.values());
-
         System.out.println("Строки с ключом больше 5:");
         for (Map.Entry<Integer,String> entry : map.entrySet()) {
             if (entry.getKey() > 5){
