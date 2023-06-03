@@ -1,7 +1,9 @@
 package lab2;
 
+import java.io.Serializable;
+
 public class Task_4 {
-    class Person{
+    public static class Person implements Serializable {
         String name;
         int age;
         String sex;
