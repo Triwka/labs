@@ -1,71 +1,33 @@
 package leetCode;
 
 import java.util.ArrayList;
-
+// https://leetcode.com/problems/container-with-most-water/description/
 public class ContainerWithMostWater {
     public static int maxArea(int[] height) {
         int start = 0;
         int end = height.length - 1;
-        int max = Integer.MIN_VALUE;
-        int value = 0;
-
-        while (true){
-            System.out.println(start + " " + end);
-            value = (end - start) * Math.min(height[start],height[end]);
-            if (value > max){
-                max = value;
+        int max = 0;
+        while(start < end){
+            int w = end - start;
+            int h = Math.min(height[start], height[end]);
+            int area = h * w;
+            max = Math.max(max, area);
+            if(height[start] < height[end]) {
+                start++;
             }
-            start++;
-            if (start == end){
-                break;
+            else if(height[start] > height[end]) {
+                end--;
             }
-            System.out.println(start + " " + end);
-            value = (end - start) * Math.min(height[start],height[end]);
-            if (value > max){
-                max = value;
-            }
-            end--;
-            if (start == end){
-                break;
+            else {
+                start++;
+                end--;
             }
         }
-        System.out.println();
-        start = 0;
-        end = height.length - 1;
-
-        while (true){
-            System.out.println(start + " " + end);
-            value = (end - start) * Math.min(height[start],height[end]);
-            if (value > max){
-                max = value;
-            }
-            end--;
-            if (start == end){
-                break;
-            }
-            System.out.println(start + " " + end);
-            value = (end - start) * Math.min(height[start],height[end]);
-            if (value > max){
-                max = value;
-            }
-            start++;
-            if (start == end){
-                break;
-            }
-        }
-
-        for (int i = 0; i <height.length ; i++) {
-            value = Math.min(height[i],height[height.length - 1]) * (height.length - i - 1);
-            if (value > max){
-                max = value;
-            }
-        }
-
         return max;
     }
 
     public static void main(String[] args) {
-        int[] test = {2,3,4,5,18,17,6};
+        int[] test = {4,4,2,11,0,11,5,11,13,8};
         System.out.println(ContainerWithMostWater.maxArea(test));
     }
 }

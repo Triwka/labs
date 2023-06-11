@@ -2,25 +2,24 @@ package leetCode;
 
 import java.util.Arrays;
 import java.util.Collections;
-/*
-Given an integer array nums, find the
-subarray
- with the largest sum, and return its sum.
- */
+//https://leetcode.com/problems/maximum-subarray/submissions/938835807/
 public class MaximumSubarray {
-    public static void main(String[] args) {
-        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+    public static int maxSubArray(int[] nums) {
         int currSum = 0;
-        int maxSum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            currSum += nums[i];
-            if (maxSum <= currSum){
+        int maxSum = -Integer.MAX_VALUE;
+        for (int num : nums) {
+            currSum += num;
+            if (maxSum <= currSum) {
                 maxSum = currSum;
             }
-            if (currSum < 0){
+            if (currSum < 0) {
                 currSum = 0;
             }
         }
-        System.out.println(Integer.MIN_VALUE);
+        return maxSum;
+    }
+    public static void main(String[] args) {
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        System.out.println(maxSubArray(nums));
     }
 }
